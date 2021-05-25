@@ -1,0 +1,49 @@
+<div class="container" id="main-container">
+    <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-action" (click)="onOpenModal(null, 'add')">
+            <span style="font-weight:bolder; font-size: large;">+</span>
+        </button>
+        
+    </div>
+
+    <div class="list-group" *ngFor="let book of books">
+        <button type="button" class="list-group-item list-group-item-action" (click)="goChapters(book.id)">
+            <span style="font-size: x-large; font-weight: bold;">{{book?.title}}<br/> </span>
+            <span style="font-weight: lighter;">by {{book?.author}}<br/> </span>
+            <span>{{book?.note}}</span>
+        </button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Add book</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form #addForm="ngForm" (ngSubmit)="onAddBook(addForm)">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" ngModel name="title" class="form-control" id="title" placeholder="Title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" ngModel name="author" class="form-control" id="author" placeholder="Author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Description</label>
+                        <input type="text" ngModel name="note" class="form-control" id="note" placeholder="Note">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="add-book-form" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                        <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

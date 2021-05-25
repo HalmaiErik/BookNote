@@ -1,0 +1,13 @@
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
+input.ng-invalid.ng-touched{
+    border: 1px solid red;    
+}
+
+.input-row {
+    margin-top: 10px;
+}
+
+#toast-container > div {
+    opacity:1;
+}

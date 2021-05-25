@@ -1,0 +1,27 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div *ngIf="!isLoggedIn">
+      <a routerLink="/" class="navbar-brand home" style="color:white;">
+        Book Note
+      </a>
+    </div>
+
+    <div *ngIf="isLoggedIn">
+      <a routerLink="/home" class="navbar-brand home" style="color:white;">
+        Book Note
+      </a>
+    </div>
+
+    <div class="flex-grow-1 float-right">
+      <div *ngIf="!isLoggedIn">
+        <a routerLink="/sign-up" class="float-right signup mr-2">Sign up</a>
+        <a routerLink="/login" class="float-right login mr-2">Login</a>
+      </div>
+
+      <div *ngIf="isLoggedIn">
+        <a routerLink="/" (click)="logout()" class="float-right logout mr-2">Logout</a>
+      </div>
+    </div>
+
+  </nav>
+</header>

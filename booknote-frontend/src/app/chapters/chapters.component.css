@@ -1,0 +1,7 @@
+.centered-item {
+    text-align: center;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
